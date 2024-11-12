@@ -1,7 +1,6 @@
 biopython==1.80
-streamlit==1.20.0  # Or your version
+streamlit==1.20.0
 requests==2.30.0
 numpy==1.24.4
-pandas==1.5.3
-scipy==1.10.0
+scipy==1.9.3
 
