@@ -117,15 +117,6 @@ def app():
         border-radius: 8px;
         background-color: #f1f1f1;
     }
-    .copy-button {
-        background-color: #bf5700;
-        color: white;
-        border: none;
-        padding: 5px;
-        font-size: 1em;
-        cursor: pointer;
-        border-radius: 8px;
-    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -161,13 +152,9 @@ def app():
 
             st.markdown("### gRNA gBlocks Generated:")
             for i, context in enumerate(contexts, 1):
-                # Display gRNA in a box with copy-to-clipboard button
-                st.markdown(f"#### gRNA {i}")
-                st.markdown(f'<div class="gRNA-box"><code style="color: black;">{context}</code></div>', unsafe_allow_html=True)
-                
-                # Copy to clipboard button for each gRNA sequence
-                st.markdown(f'<button class="copy-button" onclick="navigator.clipboard.writeText(\'{context}\')">Copy gRNA {i}</button>', unsafe_allow_html=True)
-
+                # Display gRNA with copy button using st.text_area for copying
+                st.markdown(f"**gRNA {i}**")
+                st.text_area(f"gRNA {i} Sequence", value=context, height=50, key=f"gRNA_{i}")
         else:
             st.error("No DNA sequence found. Please select a gene or paste a DNA sequence.")
     
