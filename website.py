@@ -8,7 +8,8 @@ def load_gene_list():
     file_path = '/Users/ismarminiel/Desktop/ShewKEGGCast/shewgenesparse.txt'  # Full path to the file
     
     try:
-        with open(file_path, 'r') as file:
+        with open('shewgenesparse.txt', 'r') as file:
+    # Your code to process the fil
             for line in file:
                 parts = line.strip().split(" ", 1)
                 if len(parts) == 2:
