@@ -1,4 +1,6 @@
-biopython==1.80
-streamlit==1.20.0
-requests==2.30.0
-numpy==1.23.5
+biopython
+streamlit
+requests
+numpy
+
+
