@@ -136,12 +136,7 @@ def app():
     genes = load_gene_list()
     gene_names = [f"{gene['id']}: {gene['name']}" for gene in genes]
     
-    search_query = st.text_input('Search for a gene:', '')
-
-    # Filter gene names based on the search query
-    filtered_gene_names = [name for name in gene_names if search_query.lower() in name.lower()]
-
-    selected_gene = st.selectbox("Select Shewanella Gene:", filtered_gene_names)
+    selected_gene = st.selectbox("Select Shewanella Gene:", gene_names)
 
     # Custom DNA input
     custom_dna = st.text_area("Or Paste DNA Sequence (up to 500 bp):", height=200)
