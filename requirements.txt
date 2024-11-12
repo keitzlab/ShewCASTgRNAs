@@ -2,5 +2,5 @@ biopython
 streamlit
 requests
 numpy
-
+pyperclip
 
