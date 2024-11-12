@@ -5,11 +5,10 @@ import re
 # Function to load genes from the 'shewgenesparse.txt' file
 def load_gene_list():
     genes = []
-    file_path = '/Users/ismarminiel/Desktop/ShewKEGGCast/shewgenesparse.txt'  # Full path to the file
+    file_path = 'shewgenesparse.txt'  # Assuming the file is in the same directory as the script
     
     try:
-        with open('shewgenesparse.txt', 'r') as file:
-    # Your code to process the fil
+        with open(file_path, 'r') as file:
             for line in file:
                 parts = line.strip().split(" ", 1)
                 if len(parts) == 2:
@@ -133,9 +132,16 @@ def app():
     # Title and instructions
     st.markdown("<h1 class='title'>Shewanella CAST gRNA Generator</h1>", unsafe_allow_html=True)
 
-    # Gene dropdown
+    # Gene dropdown with search functionality
     genes = load_gene_list()
-    selected_gene = st.selectbox("Select Shewanella Gene:", [f"{gene['id']}: {gene['name']}" for gene in genes])
+    gene_names = [f"{gene['id']}: {gene['name']}" for gene in genes]
+    
+    search_query = st.text_input('Search for a gene:', '')
+
+    # Filter gene names based on the search query
+    filtered_gene_names = [name for name in gene_names if search_query.lower() in name.lower()]
+
+    selected_gene = st.selectbox("Select Shewanella Gene:", filtered_gene_names)
 
     # Custom DNA input
     custom_dna = st.text_area("Or Paste DNA Sequence (up to 500 bp):", height=200)
@@ -175,4 +181,3 @@ def app():
 
 if __name__ == "__main__":
     app()
-
