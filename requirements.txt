@@ -3,4 +3,4 @@ streamlit
 requests
 numpy
 pyperclip
-
+streamlit-copy-to-clipboard
