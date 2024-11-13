@@ -132,22 +132,8 @@ def app():
 
             st.markdown("### gRNA gBlocks Generated:")
             for i, context in enumerate(contexts, 1):
-                # Display entire gRNA with line breaks
-                st.text_area(f"gRNA {i} Sequence", value=context, height=100, key=f"gRNA_{i}")
-                
-                # Add copy button using JavaScript for each gRNA
-                copy_button = f"""
-                <button onclick="navigator.clipboard.writeText(`{context}`)" style="
-                    background-color: #bf5700; 
-                    color: white; 
-                    padding: 8px 12px; 
-                    border: none; 
-                    border-radius: 4px; 
-                    cursor: pointer;
-                    font-size: 14px;
-                ">Copy gRNA {i}</button>
-                """
-                st.markdown(copy_button, unsafe_allow_html=True)
+                # Display entire gRNA sequence in a text area
+                st.text_area(f"gRNA {i} Sequence", value=context, height=100, key=f"gRNA_{i}", disabled=True)
 
         else:
             st.error("No DNA sequence found. Please select a gene or paste a DNA sequence.")
