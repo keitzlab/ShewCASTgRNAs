@@ -89,13 +89,59 @@ def golden_gate_assembly():
 
 # Streamlit app UI
 def app():
-    # Header with UT Austin colors
+    # Header with Y2K design colors and font
     st.markdown("""
     <style>
     .title {
-        color: #bf5700;
-        font-size: 2.5em;
+        color: #ff00ff;  /* Neon purple */
+        font-size: 3em;
+        font-family: 'Arial', sans-serif;
         font-weight: bold;
+        text-shadow: 3px 3px 5px #0000ff; /* Blue shadow */
+    }
+    .container {
+        background-color: #ffff00;  /* Neon yellow */
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 15px #ff00ff;
+    }
+    .button {
+        background-color: #00ff00;  /* Neon green */
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px #0000ff;
+        text-shadow: 1px 1px 2px #ff0000; /* Red shadow for text */
+    }
+    .gRNA-box {
+        border: 3px dashed #ff00ff;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+        box-shadow: 5px 5px 10px #ff00ff;
+    }
+    .copy-button {
+        background-color: #ff00ff;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    body {
+        background-color: #000000; /* Black background */
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    .text-area {
+        font-family: 'Courier New', monospace;
+        background-color: #f0f0f0;
+        border: 2px solid #ff00ff;
+        padding: 10px;
+        font-size: 1.1em;
     }
     </style>
     """, unsafe_allow_html=True)
