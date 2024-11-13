@@ -112,12 +112,6 @@ def app():
         cursor: pointer;
         border-radius: 8px;
     }
-    .gRNA-box {
-        border: 2px dashed #bf5700;
-        padding: 10px;
-        border-radius: 8px;
-        background-color: #f1f1f1;
-    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -153,9 +147,8 @@ def app():
 
             st.markdown("### gRNA gBlocks Generated:")
             for i, context in enumerate(contexts, 1):
-                # Display gRNA with copy button using pyperclip for copying
-                st.markdown(f"**gRNA {i}**")
-                st.code(context, language="plaintext")
+                # Display entire gRNA with line breaks and a copy button for each
+                st.text_area(f"gRNA {i} Sequence", value=context, height=100, key=f"gRNA_{i}")
                 if st.button(f"Copy gRNA {i}", key=f"copy_button_{i}"):
                     pyperclip.copy(context)
                     st.success(f"gRNA {i} copied to clipboard!")
