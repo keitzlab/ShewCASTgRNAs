@@ -1,6 +1,7 @@
 import streamlit as st
 from Bio.KEGG import REST
 import re
+from streamlit_copy_to_clipboard import st_copy_button
 
 # Function to load genes from the 'shewgenesparse.txt' file
 def load_gene_list():
@@ -148,14 +149,9 @@ def app():
             for i, context in enumerate(contexts, 1):
                 # Display entire gRNA with line breaks
                 st.text_area(f"gRNA {i} Sequence", value=context, height=100, key=f"gRNA_{i}")
-
-                # JavaScript-based copy button
-                copy_js = f"""
-                    <button onclick="navigator.clipboard.writeText('{context}')">
-                        Copy gRNA {i}
-                    </button>
-                """
-                st.markdown(copy_js, unsafe_allow_html=True)
+                
+                # Copy to clipboard button for each gRNA sequence
+                st_copy_button(context, f"Copy gRNA {i}")
 
         else:
             st.error("No DNA sequence found. Please select a gene or paste a DNA sequence.")
