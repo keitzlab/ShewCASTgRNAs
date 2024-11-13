@@ -1,7 +1,6 @@
 import streamlit as st
 from Bio.KEGG import REST
 import re
-import pyperclip
 
 # Function to load genes from the 'shewgenesparse.txt' file
 def load_gene_list():
@@ -147,11 +146,17 @@ def app():
 
             st.markdown("### gRNA gBlocks Generated:")
             for i, context in enumerate(contexts, 1):
-                # Display entire gRNA with line breaks and a copy button for each
+                # Display entire gRNA with line breaks
                 st.text_area(f"gRNA {i} Sequence", value=context, height=100, key=f"gRNA_{i}")
-                if st.button(f"Copy gRNA {i}", key=f"copy_button_{i}"):
-                    pyperclip.copy(context)
-                    st.success(f"gRNA {i} copied to clipboard!")
+
+                # JavaScript-based copy button
+                copy_js = f"""
+                    <button onclick="navigator.clipboard.writeText('{context}')">
+                        Copy gRNA {i}
+                    </button>
+                """
+                st.markdown(copy_js, unsafe_allow_html=True)
+
         else:
             st.error("No DNA sequence found. Please select a gene or paste a DNA sequence.")
     
