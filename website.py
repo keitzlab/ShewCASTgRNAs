@@ -89,18 +89,18 @@ def golden_gate_assembly():
 
 # Streamlit app UI
 def app():
-    # Header with Y2K design colors and font
+    
     st.markdown("""
     <style>
     .title {
-        color: #ff00ff;  /* Neon purple */
+        color: #bf5700;  /* Neon purple */
         font-size: 3em;
         font-family: 'Arial', sans-serif;
         font-weight: bold;
-        text-shadow: 3px 3px 5px #0000ff; /* Blue shadow */
+        text-shadow: 3px 3px 5px #000000; /* Blue shadow */
     }
     .container {
-        background-color: #ffff00;  /* Neon yellow */
+        background-color: #ffffff;  /* Neon yellow */
         padding: 20px;
         border-radius: 15px;
         box-shadow: 5px 5px 15px #ff00ff;
